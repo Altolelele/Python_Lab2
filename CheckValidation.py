@@ -2,13 +2,14 @@ import re
 
 
 class CheckValidation:
-    """Объект класса CheckValidation обрабатывает запись о научном сотруднике.
-        Используется для хранения полей записи и их валидации.
+    """
+    Объект класса CheckValidation обрабатывает запись о научном сотруднике.
+    Используется для хранения полей записи и их валидации.
         Attributes
         ----------
             dictionary : dict
                 Словарь хранит записи в виде "тип данных о сотруднике": данные о сотруднике.
-        """
+    """
     dictionary: dict
 
     def __init__(self, tmp: dict) -> None:
@@ -39,9 +40,11 @@ class CheckValidation:
             bool:
                 Результат проверки на корректность.
         """
-        if 1.2 < float(self.dictionary["height"]) < 2.3:
-            return True
-        return False
+        try:
+            height = float(self.dictionary["height"])
+        except ValueError:
+            return False
+        return 1 < height < 2.3
 
     def check_inn(self) -> bool:
         """Проверяет номер ИНН на валидность.
