@@ -31,14 +31,14 @@ class Validator:
     def validation(self, index: int) -> dict:
         """
         Выполняет валидацию записи.
-        Attributes
-        ----------
-            index : index
-                Индекс записи в списке записей
-        Returns
-        -------
-            dict:
-                Словарь вида: "тип данных о сотруднике": флаг валидности.
+            Attributes
+            ----------
+                index : index
+                    Индекс записи в списке записей
+            Returns
+            -------
+                dict:
+                    Словарь вида: "тип данных о сотруднике": флаг валидности.
         """
         result = {"email": self.data[index].check_email(),
                   "height": self.data[index].check_height(),
@@ -54,10 +54,10 @@ class Validator:
     def count_valid_data(self) -> int:
         """
         Производит подсчет валидных записей.
-        Returns
-        -------
-            int:
-                Число валидных записей.
+            Returns
+            -------
+                int:
+                    Число валидных записей.
         """
         valid_counter = 0
         for elem in tqdm(range(len(self.data)), desc="Подсчёт валидных записей", ncols=100):
@@ -68,10 +68,10 @@ class Validator:
     def count_invalid_data(self) -> int:
         """
         Производит подсчет невалидных записей.
-        Returns
-        -------
-            int:
-                Число невалидных записей.
+            Returns
+            -------
+                int:
+                    Число невалидных записей.
         """
         invalid_counter = 0
         for elem in tqdm(range(len(self.data)), desc="Подсчёт невалидных записей", ncols=100):
@@ -82,10 +82,10 @@ class Validator:
     def count_invalid_arguments(self):
         """
         Производит подсчет невалидных записей по типам ошибок.
-        Returns
-        -------
-            list:
-                Список невалидных записей по типам ошибок.
+            Returns
+            -------
+                list:
+                    Список невалидных записей по типам ошибок.
         """
         result = []
         c_email = 0
